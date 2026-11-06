@@ -1,38 +1,25 @@
-const progress = document.getElementById('reading-progress');
-const updateProgress = () => {
-  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  progress.style.width = `${scrollable > 0 ? Math.min(100, Math.max(0, window.scrollY / scrollable * 100)) : 0}%`;
-};
-window.addEventListener('scroll', updateProgress, {passive:true});
-window.addEventListener('resize', updateProgress);
-updateProgress();
+// Progressive enhancement: images remain ordinary links if <dialog> is unsupported.
+const lightbox = document.getElementById('ml-lightbox');
+const lightboxImage = document.getElementById('ml-lightbox-image');
+const lightboxCaption = document.getElementById('ml-lightbox-caption');
+const closeLightbox = document.getElementById('ml-lightbox-close');
 
-const menuToggle = document.getElementById('menu-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-menuToggle.addEventListener('click', () => {
-  const open = menuToggle.getAttribute('aria-expanded') !== 'true';
-  menuToggle.setAttribute('aria-expanded', String(open));
-  menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-  mobileNav.hidden = !open;
-});
-mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  mobileNav.hidden = true;
-  menuToggle.setAttribute('aria-expanded', 'false');
-  menuToggle.setAttribute('aria-label', 'Open navigation');
-}));
-
-const dialog = document.getElementById('image-dialog');
-const dialogImage = document.getElementById('dialog-image');
-const dialogCaption = document.getElementById('dialog-caption');
-document.querySelectorAll('[data-image]').forEach(button => {
-  button.addEventListener('click', () => {
-    dialogImage.src = button.dataset.image;
-    dialogImage.alt = button.querySelector('img')?.alt || 'Expanded research figure';
-    dialogCaption.textContent = button.dataset.caption || '';
-    dialog.showModal();
+if (lightbox && lightboxImage && typeof lightbox.showModal === 'function') {
+  document.querySelectorAll('a.ml-zoom').forEach(link => {
+    link.addEventListener('click', event => {
+      // Modifier-key clicks continue to open the original figure in another tab.
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      const image = link.querySelector('img');
+      lightboxImage.src = link.getAttribute('href');
+      lightboxImage.alt = image?.alt || 'Expanded research figure';
+      lightboxCaption.textContent = link.closest('figure')?.querySelector('figcaption')?.textContent || 'Original research figure';
+      lightbox.showModal();
+    });
   });
-});
-document.getElementById('dialog-close').addEventListener('click', () => dialog.close());
-dialog.addEventListener('click', event => {if (event.target === dialog) dialog.close();});
-dialog.addEventListener('close', () => { dialogImage.removeAttribute('src'); });
-document.getElementById('copyright-year').textContent = String(new Date().getFullYear());
+  closeLightbox?.addEventListener('click', () => lightbox.close());
+  lightbox.addEventListener('click', event => {
+    if (event.target === lightbox) lightbox.close();
+  });
+  lightbox.addEventListener('close', () => lightboxImage.removeAttribute('src'));
+}

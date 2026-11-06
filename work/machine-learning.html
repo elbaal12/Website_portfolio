@@ -2,184 +2,234 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0a0d17">
-  <meta name="description" content="A research case study by Elie Abi Raad, Dr.-Ing. on statistical inference, feature engineering, machine learning, and real-time monitoring for ultrasonic metal welding quality.">
-  <meta property="og:type" content="website">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <meta name="description" content="Elie Abi Raad's applied AI and statistics research: feature engineering, supervised learning, classification, robust regression and real-time industrial quality monitoring.">
   <meta property="og:title" content="From vibrations to predictions — Elie Abi Raad">
-  <meta property="og:description" content="Applied statistics and machine learning for industrial quality monitoring: two connected research studies, from raw sensor signals to predictive models.">
-  <title>Applied AI & Statistical Modeling — Elie Abi Raad, Dr.-Ing.</title>
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <meta property="og:description" content="One ultrasonic welding experiment, two data-processing approaches, and evidence of hands-on statistics and machine-learning work.">
+  <title>Applied AI, ML &amp; Statistics — Elie Abi Raad, Dr.-Ing.</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/styles.css">
   <link rel="stylesheet" href="ml-case-study.css">
 </head>
 <body>
-  <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header" id="top">
-    <div class="shell header-inner">
-      <a class="brand" href="../index.html" aria-label="Elie Abi Raad — portfolio home"><span class="brand-icon">E<span class="brand-dot">.</span></span><span>ELIE ABI RAAD<span class="brand-postnominal">, DR.-ING.</span></span></a>
-      <nav class="desktop-nav" aria-label="Portfolio navigation">
-        <a href="../index.html">Home</a>
-        <a href="../capabilities.html">Capabilities</a>
-        <a href="../work.html">Selected work</a>
-        <a href="machine-learning.html" aria-current="page" class="portfolio-current">AI &amp; ML</a>
-        <a href="../expertise.html">Technical depth</a>
-        <a href="../about.html">About</a>
-      </nav>
-      <a class="nav-contact" href="../Elie_Abi_Raad_CV.pdf" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
+<a class="ml-skip" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html">Elie Abi Raad <span>· Dr.-Ing.</span></a>
+    <button class="menu-btn" type="button" aria-label="Open navigation" aria-controls="ml-navigation" aria-expanded="false">☰</button>
+    <div class="nav-links" id="ml-navigation">
+      <a href="../index.html">Home</a>
+      <a href="../capabilities.html">Capabilities</a>
+      <a href="../work.html">Selected work</a>
+      <a class="active ai-nav-link" aria-current="page" href="machine-learning.html">AI &amp; ML</a>
+      <a href="../expertise.html">Technical depth</a>
+      <a href="../about.html">About</a>
+      <a class="cv-link" href="../Elie_Abi_Raad_CV.pdf" target="_blank" rel="noopener">CV ↗</a>
     </div>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Portfolio navigation" hidden>
-      <a href="../index.html">Home</a><a href="../capabilities.html">Capabilities</a><a href="../work.html">Selected work</a><a href="machine-learning.html" aria-current="page">AI &amp; ML</a><a href="../expertise.html">Technical depth</a><a href="../about.html">About</a><a href="../Elie_Abi_Raad_CV.pdf" target="_blank" rel="noopener">CV ↗</a>
-    </nav>
+  </div>
+</nav>
+<main id="main">
+  <header class="case-hero ml-hero">
+    <div class="container">
+      <p class="ml-breadcrumb"><a href="../work.html">Selected work</a><span aria-hidden="true"> / </span><a href="usmw.html">Doctoral research</a><span aria-hidden="true"> / </span>AI &amp; statistics</p>
+      <div class="kicker">RWTH Aachen · Applied research · AI, ML &amp; Statistics</div>
+      <h1>From vibrations to predictions.</h1>
+      <div class="ml-hero-grid">
+        <div>
+          <p class="ml-lede">I turned high-frequency vibration and acoustic signals into features that could <strong>classify weld quality</strong> and <strong>estimate mechanical strength</strong>.</p>
+          <p>Working from one experimental campaign, I investigated two distinct ways of processing the same source measurements and evaluated how different statistical and machine-learning methods performed.</p>
+          <div class="ml-buttons">
+            <a class="btn primary" href="#overview">Explore the case study ↓</a>
+            <a class="btn ghost" href="#papers">Read the papers ↗</a>
+          </div>
+        </div>
+        <aside class="ml-hero-note">
+          <span class="ml-note-label">THE CENTRAL IDEA</span>
+          <strong>Data processing is part of the model.</strong>
+          <p>The representation you extract from raw measurements determines what a model can learn—and which questions it can answer.</p>
+          <div class="ml-mini-flow" aria-label="Analysis pipeline">
+            <span>Measure</span><b>→</b><span>Engineer</span><b>→</b><span>Model</span>
+          </div>
+        </aside>
+      </div>
+      <div class="ml-tags" aria-label="Methods"><span>Feature engineering</span><span>Supervised ML</span><span>Statistical inference</span><span>Model evaluation</span></div>
+    </div>
   </header>
 
-  <nav class="case-section-nav" aria-label="Sections of this case study"><div class="shell"><span>ON THIS PAGE</span><a href="#overview">Overview</a><a href="#classification">Machine learning</a><a href="#statistics">Statistics</a><a href="#realtime">Real-time monitoring</a><a href="#takeaways">Capabilities</a><a href="#research">Papers</a></div></nav>
+  <div class="container">
+    <div class="ml-proofbar" aria-label="Research at a glance">
+      <div><strong>123</strong><span>welds in the classification study</span></div>
+      <div><strong>24 → 4</strong><span>features after selection</span></div>
+      <div><strong>100×</strong><span>random train/test allocations</span></div>
+      <div><strong>0.44</strong><span>best in-sample regression R²*</span></div>
+    </div>
+    <p class="ml-proofnote">* Adjusted R² = 0.36 for the three-feature model on a 40-weld subset; not an out-of-sample accuracy claim.</p>
+  </div>
 
-  <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
-      <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
-      <div class="shell hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow"><span class="pulse"></span> RESEARCH CASE STUDY <span class="eyebrow-separator">/</span> AI, ML & STATISTICS</div>
-          <h1 id="hero-title">From vibrations<br>to <span class="gradient-text">predictions.</span></h1>
-          <p class="hero-lede">I used statistics and machine learning to turn acoustic and vibration measurements into actionable signals about <strong>manufacturing quality</strong>.</p>
-          <p class="hero-detail">Starting with the same experimental measurements, I designed two different data-processing and feature-engineering approaches: one to classify weld quality, the other to estimate weld strength. I also assessed whether monitoring could work during the industrial process—not just afterward.</p>
-          <div class="hero-tags"><span>Supervised ML</span><span>Statistical inference</span><span>Feature engineering</span><span>Signal processing</span></div>
-          <div class="hero-actions"><a class="button button-primary" href="#overview">Explore the case study <span aria-hidden="true">↓</span></a><a class="button button-ghost" href="#research">Read the research <span aria-hidden="true">→</span></a></div>
-          <div class="hero-byline"><span class="byline-rule"></span> Elie Abi Raad, Dr.-Ing. <span class="byline-small">· RWTH Aachen University · PhD research</span></div>
-        </div>
-        <div class="hero-visual" aria-label="Conceptual diagram of signals becoming features and predictions">
-          <div class="visual-corner visual-corner-top"></div><div class="visual-corner visual-corner-bottom"></div>
-          <div class="visual-topline"><span><span class="visual-live"></span> SENSOR-TO-INSIGHT PIPELINE</span><span class="visual-index">FIG. 00 / CONCEPTUAL</span></div>
-          <div class="signal-scene">
-            <div class="signal-axis">amplitude <span>time →</span></div>
-            <svg class="waveplot" viewBox="0 0 560 190" role="img" aria-label="Stylized vibration signal plotted over time">
-              <defs><linearGradient id="cyanTrace" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#44e5d5"/><stop offset="1" stop-color="#7ea8ff"/></linearGradient></defs>
-              <g class="graph-grid"><path d="M0 38H560 M0 76H560 M0 114H560 M0 152H560 M56 0V190 M112 0V190 M168 0V190 M224 0V190 M280 0V190 M336 0V190 M392 0V190 M448 0V190 M504 0V190"/></g>
-              <path class="trace-secondary" d="M0 98L7 74L14 120L21 77L28 103L35 91L42 108L49 88L56 115L63 74L70 100L77 117L84 68L91 110L98 89L105 102L112 82L119 127L126 66L133 120L140 80L147 106L154 92L161 117L168 75L175 104L182 86L189 126L196 77L203 104L210 85L217 118L224 83L231 105L238 94L245 107L252 87L259 117L266 81L273 103L280 87L287 111L294 77L301 121L308 84L315 105L322 87L329 116L336 80L343 110L350 89L357 112L364 75L371 114L378 90L385 110L392 81L399 116L406 87L413 104L420 92L427 112L434 85L441 115L448 91L455 106L462 83L469 116L476 89L483 108L490 90L497 115L504 86L511 103L518 94L525 105L532 92L539 110L546 91L553 102L560 96"/>
-              <path class="trace-primary" d="M0 97C9 22 16 177 26 92S43 144 52 88S70 160 78 91S96 143 104 92S122 164 130 88S148 148 156 94S174 157 182 91S200 147 208 91S226 143 234 93S252 154 260 95S278 151 286 93S304 143 312 94S330 150 338 96S356 148 364 93S382 150 390 93S408 148 416 95S434 144 442 94S460 141 468 94S486 136 494 95S512 124 520 96S538 118 546 96S555 111 560 97"/>
-              <circle cx="394" cy="93" r="7" class="signal-dot"/>
-              <path class="signal-annotation-line" d="M394 87V19H484"/>
-              <text x="488" y="23" class="signal-annotation">FEATURE</text>
-            </svg>
-            <div class="signal-footer"><span>VIBRATION / ACOUSTIC INPUT</span><span>20 kHz process</span></div>
+  <div class="container">
+    <div class="case-body ml-case-body">
+      <aside class="case-toc" aria-label="On this page">
+        <div class="kicker">On this page</div>
+        <a href="#overview">The shared data</a>
+        <a href="#classification">Machine learning</a>
+        <a href="#statistics">Statistics &amp; regression</a>
+        <a href="#realtime">Real-time constraints</a>
+        <a href="#competencies">What this demonstrates</a>
+        <a href="#papers">The original papers</a>
+      </aside>
+
+      <article class="case-content ml-content">
+        <section id="overview">
+          <div class="kicker">01 / The research question</div>
+          <h2>One experimental foundation. Two paths from signal to insight.</h2>
+          <p>Ultrasonic metal welding joins metal sheets with high-frequency mechanical vibration. Testing the finished joint for strength is often destructive. We wanted to investigate whether non-contact measurements taken <em>during</em> welding could say something useful about the resulting joint.</p>
+          <div class="ml-shared">
+            <span class="ml-note-label">SHARED EXPERIMENTAL CAMPAIGN</span>
+            <h3>120 original welds, with three additional measurements for the ML paper.</h3>
+            <p>The PhD analysis used the original 120 copper welds. The classification paper used those same 120 welds <strong>plus three additional measurements</strong>, giving 123 observations. The papers did not start from unrelated datasets; they applied different signal-processing and modeling approaches to a shared experimental foundation.</p>
           </div>
-          <div class="visual-flow" aria-hidden="true"><div class="flow-node"><span>01</span><strong>Measure</strong><small>Sensor streams</small></div><div class="flow-arrow">→</div><div class="flow-node"><span>02</span><strong>Engineer</strong><small>Signal features</small></div><div class="flow-arrow">→</div><div class="flow-node flow-final"><span>03</span><strong>Predict</strong><small>Quality / strength</small></div></div>
-          <div class="visual-footer"><span>Physical measurements</span><span class="visual-line"></span><span>Statistical & ML models</span></div>
-        </div>
-      </div>
-      <div class="shell metric-strip" aria-label="Project metrics">
-        <div class="metric"><strong>123</strong><span>welds in the ML classification study</span></div>
-        <div class="metric"><strong>100<span class="metric-suffix">×</span></strong><span>random train/test allocations</span></div>
-        <div class="metric"><strong>24 <span class="metric-arrow">→</span> 4</strong><span>features after informed selection</span></div>
-        <div class="metric"><strong>0.44</strong><span>best in-sample strength-model R² <sup>*</sup></span></div>
-      </div>
-      <p class="shell metric-note">* Three-feature regression on a 40-weld subset (adjusted R² = 0.36). The classification study used the original 120 welds plus three additional measurements; both analyses share the underlying experimental campaign.</p>
-    </section>
-
-    <section class="section overview-section" id="overview" aria-labelledby="overview-title">
-      <div class="shell">
-        <div class="section-kicker"><span class="section-number">00</span><span>THE CHALLENGE</span></div>
-        <div class="overview-grid">
-          <div><h2 id="overview-title">Can a machine <span class="muted-text">know a weld is good</span> without breaking it?</h2></div>
-          <div class="overview-text"><p>Ultrasonic metal welding joins metal sheets through high-frequency vibration. But verifying joint strength often requires destructive testing, while choosing reliable process settings can involve trial and error.</p><p>My research asked whether synchronized vibration and sound measurements could reveal the welding state—and ultimately estimate the weld's mechanical strength.</p><div class="subtle-callout"><span class="callout-icon">↳</span><div><strong>The underlying AI problem</strong><br>Translate noisy, high-frequency time-series data into interpretable inputs; then learn a reliable mapping to a quality class or continuous strength value.</div></div></div>
-        </div>
-        <div class="shared-dataset">
-          <span class="shared-dataset-label"><span class="shared-dataset-dot"></span> SHARED MEASUREMENT CAMPAIGN</span>
-          <div class="shared-dataset-body"><strong>One experimental foundation. Two different representations of the signals.</strong><p>The original 120 copper welds were measured with synchronized vibration and acoustic sensors. The classification paper added three measurements, making 123 observations. Each analysis then processed the source signals differently to address a different question.</p></div>
-        </div>
-        <div class="study-map" aria-label="Two analysis pathways built from the same experimental data">
-          <div class="study-branch"><span class="branch-label">PATHWAY 01 <span>2022 ML paper</span></span><h3>What quality state is this weld in?</h3><p>Wavelet packet decomposition → normalized frequency-band energy → neighborhood component analysis → neural network, SVM and LDA classifiers.</p><a href="#classification">Explore classification <span>→</span></a></div>
-          <div class="study-branch"><span class="branch-label">PATHWAY 02 <span>PhD Chapter 5</span></span><h3>How strong is the weld?</h3><p>Smoothed vibration envelopes → stage timing, amplitude and slope features → statistical selection → robust strength regression.</p><a href="#statistics">Explore statistics <span>→</span></a></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark-section" id="classification" aria-labelledby="classification-title">
-      <div class="shell">
-        <div class="section-kicker"><span class="section-number">01</span><span>SUPERVISED MACHINE LEARNING</span></div>
-        <div class="section-heading-grid"><div><p class="overline">Classification / DAGA 2022</p><h2 id="classification-title">Teaching models to <span class="gradient-text">recognize weld quality.</span></h2></div><p class="section-intro">I compared different model families on the same physical problem, with repeated testing to understand how the results changed with data allocation.</p></div>
-
-        <div class="dataset-panel">
-          <div class="dataset-heading"><div><span class="mini-label">THE LABELED DATASET</span><h3>123 copper welds. Three stages of quality.</h3></div><p>The same original 120 welds used in the PhD, plus three additional measurements. Process settings remained constant except for welding duration; tensile tests provided the physical strength reference.</p></div>
-          <div class="dataset-distribution" role="img" aria-label="42 underwelds, 40 basic welds, 41 basic-plus welds">
-            <div class="data-category"><div class="data-bar"><span style="width:100%"></span></div><strong>42</strong><span>Underweld</span><small>Insufficient welding</small></div>
-            <div class="data-category"><div class="data-bar"><span style="width:95.2%"></span></div><strong>40</strong><span>Basic weld</span><small>Strong weld</small></div>
-            <div class="data-category"><div class="data-bar"><span style="width:97.6%"></span></div><strong>41</strong><span>Basic weld+</span><small>Strong, closer to overwelding</small></div>
+          <div class="ml-paths">
+            <div class="ml-path">
+              <div class="ml-path-head"><span>PATH A</span><small>DAGA 2022 · Classification</small></div>
+              <h3>What quality state is the weld in?</h3>
+              <p>Wavelet packet decomposition → energy in frequency bands → neighborhood component analysis → neural network, SVM and LDA classifiers.</p>
+              <a href="#classification">Explore machine learning →</a>
+            </div>
+            <div class="ml-path">
+              <div class="ml-path-head"><span>PATH B</span><small>PhD Chapter 5 · Regression</small></div>
+              <h3>How strong is the weld?</h3>
+              <p>Smoothed vibration envelopes → process-stage timing and amplitude features → statistical testing → robust linear regression.</p>
+              <a href="#statistics">Explore statistical modeling →</a>
+            </div>
           </div>
-          <p class="dataset-note">“Basic weld+” is not the same as a measured over-weld class—a meaningful distinction in interpreting this experiment.</p>
-        </div>
+        </section>
 
-        <div class="method-grid">
-          <div class="method-card"><span class="method-index">01 / SIGNAL PROCESSING</span><div class="method-icon">〰</div><h3>Engineer better inputs</h3><p>Trim synchronized horn, anvil and microphone signals; apply level-3 wavelet packet decomposition; calculate normalized energy in eight frequency bands per sensor.</p><div class="method-footer"><span>3 sensors</span><span>8 bands each</span><span>24 features</span></div></div>
-          <div class="method-card"><span class="method-index">02 / FEATURE SELECTION</span><div class="method-icon">◇</div><h3>Find the signal in the noise</h3><p>Use neighborhood component analysis and process knowledge to retain four discriminative frequency-band features. No microphone feature was selected.</p><div class="method-footer"><span>NCA</span><span>24 → 4 features</span></div></div>
-          <div class="method-card"><span class="method-index">03 / MODEL EVALUATION</span><div class="method-icon">◎</div><h3>Test model behavior</h3><p>Compare a backpropagation neural network, SVM and LDA across 100 different 85/15 train/test splits, with tuning and 10-fold cross-validation.</p><div class="method-footer"><span>Grid / Bayesian search</span><span>100 repeats</span></div></div>
-        </div>
-
-        <div class="evidence-grid">
-          <figure class="evidence-figure image-frame">
-            <div class="figure-top"><span>FIG. 01</span><span>FROM THE ORIGINAL PAPER</span></div>
-            <button class="figure-open" data-image="ml-assets/feature-selection.webp" data-caption="Neighborhood component analysis feature weights, grouped by anvil, horn and microphone measurements. Source: Abi Raad, Pan & Vorländer, DAGA 2022." aria-label="Enlarge feature selection figure"><img src="ml-assets/feature-selection.webp" alt="Neighborhood component analysis weights for 24 signal features, with four prominent vibration-band features" loading="lazy"><span class="zoom-hint">Expand <span aria-hidden="true">→</span></span></button>
-            <figcaption>Feature importance after neighborhood component analysis. Domain knowledge informed which features were retained.</figcaption>
+        <section id="classification">
+          <div class="kicker">02 / Supervised machine learning</div>
+          <h2>Training models to recognize weld quality.</h2>
+          <p>In the classification study, each of the 123 observations had a quality class based on the welding process and mechanical-test reference. The challenge was not merely fitting a classifier—it was constructing informative inputs from high-frequency sensor signals.</p>
+          <div class="ml-class-grid" aria-label="Distribution of weld quality classes">
+            <div><strong>42</strong><span>Underweld</span><small>Insufficient welding</small></div>
+            <div><strong>40</strong><span>Basic weld</span><small>Strong weld</small></div>
+            <div><strong>41</strong><span>Basic weld+</span><small>Strong, approaching overwelding</small></div>
+          </div>
+          <p class="ml-smallnote">“Basic weld+” was not a class of experimentally observed overwelds; that distinction matters when describing the labels and what the model learned.</p>
+          <div class="ml-methods">
+            <div><span>01 · PROCESS</span><h3>Build signal features</h3><p>Measured horn, anvil and microphone signals were processed with level-3 wavelet packet decomposition. Normalized energy across eight frequency bands per sensor yielded <strong>24 candidate features</strong>.</p></div>
+            <div><span>02 · SELECT</span><h3>Reduce irrelevant inputs</h3><p>Neighborhood component analysis and process knowledge guided the selection of <strong>four discriminative features</strong>. No microphone feature was retained.</p></div>
+            <div><span>03 · EVALUATE</span><h3>Compare model families</h3><p>Compared a backpropagation neural network, support vector machine and linear discriminant analysis using <strong>100 random 85/15 train/test allocations</strong>, with cross-validation and hyperparameter optimization.</p></div>
+          </div>
+          <figure class="ml-figure">
+            <a class="ml-zoom" href="ml-assets/feature-selection.webp" target="_blank" rel="noopener" aria-label="Open feature-selection chart at original resolution">
+              <img src="ml-assets/feature-selection.webp" loading="lazy" alt="Feature weights from neighborhood component analysis for horn, anvil and microphone signal bands">
+              <span class="ml-zoom-hint">Expand chart ↗</span>
+            </a>
+            <figcaption><strong>Feature selection.</strong> The original paper's neighborhood component analysis identified which frequency-band features carried the most discriminative information.</figcaption>
           </figure>
-          <div class="evidence-copy"><span class="mini-label">THE INSIGHT</span><h3>Model choice matters.<br><em>So does feature choice.</em></h3><p>Support vector machines and linear discriminant analysis gave the strongest test-set results. Feature selection improved SVM performance, had little effect on LDA, and weakened the neural network's test result—an instructive reminder that feature reduction isn't universally beneficial.</p><ul class="check-list"><li><span>→</span>Evaluated generalization on held-out test data</li><li><span>→</span>Repeated random partitions to assess stability</li><li><span>→</span>Compared accuracy against complexity and interpretability</li></ul></div>
-        </div>
-        <div class="result-panel"><div><span class="mini-label">RESULTS IN CONTEXT</span><h3>Test accuracy across 100 train/test allocations</h3><p>Original distributions, not a cherry-picked single run. Most results fall in roughly the 90–100% range, with LDA and SVM showing particularly strong held-out performance. The lower outliers are visible too—one reason to examine the full distribution instead of quoting a peak score.</p></div><figure class="result-chart"><button class="figure-open" data-image="ml-assets/test-accuracy.webp" data-caption="Test-set classification accuracy distributions across 100 random allocations, with and without feature selection. Source: Abi Raad, Pan & Vorländer, DAGA 2022." aria-label="Enlarge test accuracy chart"><img src="ml-assets/test-accuracy.webp" alt="Boxplots of test accuracy for neural network, LDA and SVM with and without feature selection" loading="lazy"><span class="zoom-hint">Expand <span aria-hidden="true">→</span></span></button><figcaption>Original paper · test-set accuracy (%)</figcaption></figure></div>
-      </div>
-    </section>
+          <div class="ml-insight"><strong>The key finding</strong><p>Support vector machines and linear discriminant analysis performed especially well on held-out data. Feature reduction improved SVM results, barely changed LDA and weakened the neural network's test result. The value of feature selection depended on the model.</p></div>
+          <figure class="ml-figure">
+            <a class="ml-zoom" href="ml-assets/test-accuracy.webp" target="_blank" rel="noopener" aria-label="Open test-accuracy chart at original resolution">
+              <img src="ml-assets/test-accuracy.webp" loading="lazy" alt="Boxplots comparing neural-network, linear discriminant and SVM test-set accuracy across repeated data allocations">
+              <span class="ml-zoom-hint">Expand chart ↗</span>
+            </a>
+            <figcaption><strong>Test-set accuracy over 100 allocations.</strong> Repeated splitting exposes the distribution and variability of performance instead of presenting one favorable training run.</figcaption>
+          </figure>
+          <p>These results are evidence of supervised model development and evaluation on a controlled experimental dataset. They are not proof of performance across different welding machines, materials or production environments.</p>
+        </section>
 
-    <section class="section statistics-section" id="statistics" aria-labelledby="statistics-title">
-      <div class="shell">
-        <div class="section-kicker"><span class="section-number">02</span><span>STATISTICS & PREDICTIVE MODELING</span></div>
-        <div class="section-heading-grid"><div><p class="overline">Continuous prediction / PhD Chapter 5</p><h2 id="statistics-title">Beyond categories: <span class="muted-text">estimating weld strength.</span></h2></div><p class="section-intro">Returning to the original measurements, I used a different signal-processing route to extract physical stage features. On a 40-weld subset, the question became: can those features explain variations in actual mechanical strength within one welding stage?</p></div>
-        <div class="statistics-flow">
-          <div class="stats-step"><span class="step-number">01</span><h3>Extract physics-informed features</h3><p>Built timing, amplitude, ratio and slope features around stages of the welding process, using horn and anvil vibration envelopes.</p><span class="step-tags">Time series · Stage detection · Domain features</span></div>
-          <div class="stats-step"><span class="step-number">02</span><h3>Test statistical relationships</h3><p>Checked distribution shape; used Spearman rank correlation, p-values and bootstrapped 95% confidence intervals; examined partial correlations to limit redundancy.</p><span class="step-tags">Non-normal data · Inference · Collinearity</span></div>
-          <div class="stats-step"><span class="step-number">03</span><h3>Fit and compare regressions</h3><p>Applied robust linear regression with bisquare reweighting, 3,000 bootstrap resamples and alternative feature-selection strategies; compared against welding-time baseline.</p><span class="step-tags">Robust fitting · Model selection · Baselines</span></div>
-        </div>
+        <section id="statistics">
+          <div class="kicker">03 / Statistical inference &amp; regression</div>
+          <h2>Going beyond categories to estimate weld strength.</h2>
+          <p>For the doctoral work, I followed a different processing route: filtering the vibration measurements, extracting smoothed amplitude envelopes and computing features tied to changes between physical welding stages. On a subset of <strong>40 welds</strong>, the target became continuous measured strength rather than a quality class.</p>
+          <div class="ml-feature-list">
+            <div><span>FEATURE DESIGN</span><strong>Timing, amplitude, slopes and ratios</strong><p>Extract physically interpretable indicators from horn and anvil vibration envelopes.</p></div>
+            <div><span>STATISTICAL INFERENCE</span><strong>Correlations, uncertainty and redundancy</strong><p>Use Spearman correlation, p-values, bootstrapped 95% confidence intervals and partial correlations.</p></div>
+            <div><span>ROBUST MODELING</span><strong>Fit models that acknowledge imperfect data</strong><p>Apply bisquare-reweighted robust linear regression, feature selection and 3,000 bootstrap resamples.</p></div>
+          </div>
+          <figure class="ml-figure">
+            <a class="ml-zoom" href="ml-assets/chapter-figure-009.jpg" target="_blank" rel="noopener" aria-label="Open vibration-envelope feature diagram at original resolution">
+              <img src="ml-assets/chapter-figure-009.jpg" loading="lazy" alt="Annotated process-stage envelope plot showing extracted anvil vibration features">
+              <span class="ml-zoom-hint">Expand chart ↗</span>
+            </a>
+            <figcaption><strong>Physics-informed feature engineering.</strong> Signals were processed into features with interpretations tied to the underlying stages of welding. Original PhD Chapter 5 figure.</figcaption>
+          </figure>
+          <h3 class="ml-subheading">Did the engineered features outperform a simple baseline?</h3>
+          <div class="ml-model-compare">
+            <div><span>BASELINE · WELDING TIME ONLY</span><strong>0.13 <small>R²</small></strong><p>A linear model using only total welding time.</p></div>
+            <div class="ml-model-best"><span>THREE ENGINEERED FEATURES</span><strong>0.44 <small>R²</small></strong><p>Adjusted R² = <b>0.36</b> after accounting for complexity.</p></div>
+          </div>
+          <p class="ml-caveat"><strong>Interpretation:</strong> these are <em>in-sample goodness-of-fit</em> statistics, not independently validated predictive accuracy. The raw R² values are comparable; the adjusted R² is reported separately.</p>
+          <figure class="ml-figure">
+            <a class="ml-zoom" href="ml-assets/chapter-figure-010.jpg" target="_blank" rel="noopener" aria-label="Open baseline regression plot at original resolution">
+              <img src="ml-assets/chapter-figure-010.jpg" loading="lazy" alt="Scatterplot and fitted regression for weld strength versus welding duration with confidence bounds">
+              <span class="ml-zoom-hint">Expand chart ↗</span>
+            </a>
+            <figcaption><strong>Baseline regression.</strong> Welding time alone explained approximately 13% of the observed variation within the selected group.</figcaption>
+          </figure>
+          <p>Methods such as rank correlations, bootstrap intervals, partial correlations and robust fitting were chosen because the assumptions behind ordinary least-squares regression did not always hold for the measured data.</p>
+        </section>
 
-        <div class="wide-figure image-frame">
-          <div class="figure-top"><span>FIG. 02</span><span>WHAT THE FEATURES MEAN PHYSICALLY</span></div>
-          <button class="figure-open" data-image="ml-assets/chapter-figure-009.jpg" data-caption="Features extracted from the anvil vibration envelope, its rate of change and characteristic stage transitions. Source: PhD Chapter 5, Figure 5-6." aria-label="Enlarge vibration feature diagram"><img src="ml-assets/chapter-figure-009.jpg" alt="Annotated chart showing time-series vibration amplitude, its rate of change, inflection points, welding stages and extracted features" loading="lazy"><span class="zoom-hint">Expand <span aria-hidden="true">→</span></span></button>
-          <figcaption>Original PhD figure: rather than treat the signal as an opaque vector, I extracted features tied to stages of the underlying process.</figcaption>
-        </div>
+        <section id="realtime">
+          <div class="kicker">04 / Engineering constraints</div>
+          <h2>Useful models still have to work in the real system.</h2>
+          <p>The doctoral investigation also tested whether processing vibration envelopes could detect a quality-related welding stage quickly enough to inform a real-time decision.</p>
+          <div class="ml-latency">
+            <div><span>MEASURED PROCESSING TIME</span><strong>65.4 <small>ms</small></strong><p>35.7 ms for envelope processing and 29.7 ms for rate-of-change analysis.</p></div>
+            <div><span>ORIGINAL TARGET</span><strong>50 <small>ms</small></strong><p><b>Not yet met.</b> The prototype remained below the roughly 100 ms stage-duration reference but required optimization.</p></div>
+          </div>
+          <p>That distinction is deliberate: a promising analysis is not automatically a production-ready monitoring system. Timing, sensing conditions and validation outside the laboratory remain part of the product problem.</p>
+        </section>
 
-        <div class="comparison-heading"><div><span class="mini-label">MODEL COMPARISON</span><h3>The extra signal explained more than welding time alone.</h3></div><p>Models were fitted on 40 welds from the same stage and controlled conditions. The best three-feature model used both horn and anvil measurements.</p></div>
-        <div class="comparison-cards">
-          <div class="comparison-card baseline"><div class="comparison-label">BASELINE <span>WELDING TIME ALONE</span></div><div class="comparison-score">0.13 <span>R²</span></div><div class="comparison-track"><span style="width:29.5%"></span></div><p>Simple linear regression using total welding time as the only predictor.</p></div>
-          <div class="comparison-card improved"><div class="comparison-label">BEST MODEL <span>THREE ENGINEERED FEATURES</span></div><div class="comparison-score">0.44 <span>R²</span></div><div class="comparison-track"><span style="width:100%"></span></div><p>Adjusted R² = <strong>0.36</strong> after accounting for model complexity. Selected using stepwise regression.</p></div>
-        </div>
-        <p class="method-caveat"><span>i</span> These are <strong>in-sample goodness-of-fit</strong> results—not independently validated predictive accuracy. The baseline and final raw R² values are comparable; the final adjusted R² is reported separately.</p>
+        <section id="competencies">
+          <div class="kicker">05 / Skills demonstrated</div>
+          <h2>What this work says about my AI/ML capabilities.</h2>
+          <p>The valuable skill is not simply knowing model names. It is framing a useful problem, engineering defensible inputs, selecting an appropriate method and understanding where the evidence stops.</p>
+          <div class="ml-skills">
+            <div><span>01</span><h3>Problem formulation</h3><p>Distinguish classification, continuous regression and online detection tasks.</p></div>
+            <div><span>02</span><h3>Data processing</h3><p>Prepare synchronized, high-frequency sensor time series for modeling.</p></div>
+            <div><span>03</span><h3>Feature engineering</h3><p>Build both frequency-based and physically interpretable predictors.</p></div>
+            <div><span>04</span><h3>Statistical inference</h3><p>Use correlations, bootstrap confidence intervals and robust estimators.</p></div>
+            <div><span>05</span><h3>Model evaluation</h3><p>Compare algorithms, baselines, data splits and selection strategies.</p></div>
+            <div><span>06</span><h3>Engineering judgment</h3><p>Consider interpretability, sensing and deployment constraints.</p></div>
+          </div>
+          <div class="ml-limits"><strong>What I would validate next</strong><p>The work established feasibility on a controlled experimental campaign, not a universally transferable industrial AI system. Further work would test across materials, machines and operating conditions; perform feature selection strictly within training folds; and benchmark streaming inference end to end.</p></div>
+        </section>
 
-        <div class="stats-evidence-grid">
-          <div class="evidence-copy compact"><span class="mini-label">WHY THIS IS STATISTICS, NOT JUST FITTING A LINE</span><h3>A model is only as convincing as its assumptions.</h3><p>The data were not always normally distributed, some features were correlated with one another, and ordinary least-squares residuals showed outliers and unequal variance.</p><p>The methodology reflects those realities: rank correlations, bootstrap intervals, partial-correlation checks, robust loss weighting, adjusted R² and explicit comparison to an existing baseline.</p><p>It also uncovered a genuine engineering trade-off: the strongest single predictor wasn't necessarily the most practical measurement for a real-time system.</p></div>
-          <figure class="evidence-figure image-frame baseline-figure"><div class="figure-top"><span>FIG. 03</span><span>ORIGINAL PHD ANALYSIS</span></div><button class="figure-open" data-image="ml-assets/chapter-figure-010.jpg" data-caption="Robust regression of welding time versus weld strength, including confidence bounds. Source: PhD Chapter 5, Figure 5-7." aria-label="Enlarge baseline regression"><img src="ml-assets/chapter-figure-010.jpg" alt="Scatterplot showing a modest linear relationship between total welding time and weld strength, with regression fit and confidence bounds" loading="lazy"><span class="zoom-hint">Expand <span aria-hidden="true">→</span></span></button><figcaption>Baseline regression: welding time alone explained approximately 13% of the observed variance in this dataset.</figcaption></figure>
-        </div>
-      </div>
-    </section>
+        <section id="papers">
+          <div class="kicker">06 / Primary sources</div>
+          <h2>The original research, methods and figures.</h2>
+          <div class="ml-papers">
+            <a href="ml-assets/chapter-5-phd.pdf" target="_blank" rel="noopener"><span>PhD dissertation · Chapter 5</span><strong>Weld strength estimation using a data-driven approach</strong><small>Statistical inference, robust regression and monitoring constraints · RWTH Aachen</small><b>Open PDF ↗</b></a>
+            <a href="ml-assets/on-using-machine-learning.pdf" target="_blank" rel="noopener"><span>DAGA 2022 · Conference paper</span><strong>On Using Machine Learning in Ultrasonic Metal Welding</strong><small>Elie Abi Raad, Xiaokang Pan and Michael Vorländer · Model comparison and wavelet features</small><b>Open PDF ↗</b></a>
+          </div>
+        </section>
 
-    <section class="section realtime-section" id="realtime" aria-labelledby="realtime-title">
-      <div class="shell realtime-grid"><div><div class="section-kicker"><span class="section-number">03</span><span>ENGINEERING REALITY</span></div><h2 id="realtime-title">Could the analysis <span class="gradient-text">run in real time?</span></h2><p>Beyond the predictive models, Chapter 5 explored using the changing vibration envelope to detect when welding entered an important quality stage.</p><p>It was a promising monitoring prototype—but performance against a timing requirement mattered as much as algorithmic logic.</p></div><div class="latency-card"><div class="latency-header"><span>MEASURED PROCESSING LATENCY</span><span>PROTOTYPE</span></div><div class="latency-total">65.4 <span>ms</span></div><div class="latency-breakdown"><div class="latency-bar"><span class="latency-envelope" style="width:54.6%"></span><span class="latency-change" style="width:45.4%"></span></div><div class="latency-key"><span><i class="key-envelope"></i> Smoothed envelope · 35.7 ms</span><span><i class="key-change"></i> Rate-of-change processing · 29.7 ms</span></div></div><div class="latency-target"><span>Original target</span><strong>50 ms</strong><span class="latency-status">Not yet met</span></div><p>However, processing was below the roughly 100 ms stage-duration reference used in the study. Optimized streaming or lower-level implementation was identified as further work, not a demonstrated result.</p></div></div>
-    </section>
+        <section id="connected">
+          <div class="kicker">Related work</div>
+          <h2>Continue exploring the research.</h2>
+          <div class="ml-related">
+            <a href="acoustic-monitoring.html"><span>Peer-reviewed journal paper · 2023</span><strong>Acoustic monitoring of weld strength</strong><p>A complementary, physically interpretable method for detecting welding stages using the same experimental foundation.</p><b>Read case study →</b></a>
+            <a href="usmw.html"><span>Doctoral research program</span><strong>Real-time monitoring of ultrasonic metal welding</strong><p>The broader research context across measurement development, physics, statistics and engineering models.</p><b>Explore the PhD project →</b></a>
+          </div>
+        </section>
+      </article>
+    </div>
+  </div>
+</main>
 
-    <section class="section takeaway-section" id="takeaways" aria-labelledby="takeaways-title">
-      <div class="shell"><div class="section-kicker"><span class="section-number">04</span><span>WHAT THIS WORK DEMONSTRATES</span></div><div class="section-heading-grid"><div><h2 id="takeaways-title">The competencies <span class="muted-text">behind the results.</span></h2></div><p class="section-intro">The useful skill isn't knowing the names of ML algorithms. It's being able to frame a real problem, build defensible data, evaluate models and understand the conditions under which they work.</p></div>
-        <div class="capability-grid"><article class="capability"><span>01</span><h3>Problem formulation</h3><p>Translate industrial quality questions into classification, regression and online detection tasks with measurable targets.</p></article><article class="capability"><span>02</span><h3>Data & feature engineering</h3><p>Process synchronized sensor time series, derive frequency-domain features and encode physically meaningful behavior.</p></article><article class="capability"><span>03</span><h3>Statistical reasoning</h3><p>Work with non-normal data, correlation, partial correlation, hypothesis tests, bootstrap confidence intervals and robust estimators.</p></article><article class="capability"><span>04</span><h3>Machine-learning workflows</h3><p>Train and compare NNs, SVMs and LDA; tune hyperparameters; use cross-validation and repeated train/test splits.</p></article><article class="capability"><span>05</span><h3>Model judgment</h3><p>Question overfitting, compare against baselines, assess feature selection and balance fit with interpretability.</p></article><article class="capability"><span>06</span><h3>System constraints</h3><p>Connect model and signal-processing choices to sensing, computation time, deployment feasibility and physical validity.</p></article></div>
-        <div class="scope-card"><div><span class="mini-label">SCOPE & SCIENTIFIC HONESTY</span><h3>What I would validate next</h3></div><div><p>These analyses established feasibility on different representations and subsets of one controlled experimental campaign, not a production-certified general-purpose AI system. The next validation steps would be testing across equipment, materials and operating conditions, separating feature selection strictly within training folds, and benchmarking end-to-end streaming inference.</p><p>That distinction matters: building useful AI requires knowing where the evidence ends.</p></div></div>
-      </div>
-    </section>
-
-    <section class="section research-section" id="research" aria-labelledby="research-title"><div class="shell"><div class="section-kicker"><span class="section-number">05</span><span>READ THE ORIGINAL RESEARCH</span></div><div class="research-heading"><div><h2 id="research-title">Go deeper into the work.</h2><p>The figures, methods and results above come from my dissertation and a co-authored conference paper. Download the originals for the full methodology.</p></div></div><div class="papers-grid"><a class="paper-card" href="ml-assets/chapter-5-phd.pdf" target="_blank" rel="noopener"><div><span class="paper-type">PHD DISSERTATION · CHAPTER 5</span><h3>Weld strength estimation using a data-driven approach</h3><p>Statistical inference, engineering features, robust regression, model comparison and monitoring latency.</p></div><div class="paper-bottom"><span>Elie Abi Raad · RWTH Aachen · 2023</span><span class="paper-arrow">→</span></div></a><a class="paper-card" href="ml-assets/on-using-machine-learning.pdf" target="_blank" rel="noopener"><div><span class="paper-type">CONFERENCE PAPER · DAGA 2022</span><h3>On using Machine Learning in Ultrasonic Metal Welding</h3><p>With Xiaokang Pan and Michael Vorländer. Three classifiers, wavelet features, neighborhood component analysis and repeated evaluation.</p></div><div class="paper-bottom"><span>DAGA 2022 · Pages 119–122</span><span class="paper-arrow">→</span></div></a></div></div></section>
-
-    <section class="related-case-section" aria-labelledby="related-case-title"><div class="shell"><span class="mini-label">CONNECTED RESEARCH</span><h2 id="related-case-title">Explore the research around this case study.</h2><div class="related-case-grid"><a href="acoustic-monitoring.html"><span>JOURNAL PAPER · 2023</span><h3>Acoustic monitoring of weld strength</h3><p>A complementary physically interpretable stage-detection approach based on the same experimental campaign.</p><strong>Read the journal case study →</strong></a><a href="usmw.html"><span>DOCTORAL RESEARCH</span><h3>Ultrasonic metal welding</h3><p>The wider research effort connecting monitoring, measurements, simulation, stage detection and predictive modeling.</p><strong>See the broader project →</strong></a></div></div></section>
-
-    <section class="contact-section"><div class="shell contact-grid"><div><span class="mini-label">LET'S BUILD SOMETHING USEFUL</span><h2>Interested in turning complex data into <span class="gradient-text">real-world impact?</span></h2></div><div><p>I'm an engineering PhD who works across data, modeling, research, and technical product and program development.</p><div class="contact-actions"><a class="button button-primary" href="mailto:elie.abiraad.pm@gmail.com">Get in touch →</a><a class="button button-ghost" href="https://www.linkedin.com/in/elie-abi-raad" target="_blank" rel="noopener noreferrer">LinkedIn →</a></div></div></div></section>
-  </main>
-  <footer class="footer"><div class="shell footer-inner"><span>© <span id="copyright-year">2026</span> Elie Abi Raad, Dr.-Ing.</span><span>Research → evidence → engineering judgment</span><a href="../work.html">← All selected work</a><a href="#top">Back to top ↑</a></div></footer>
-
-  <dialog id="image-dialog" class="image-dialog" aria-label="Expanded research figure"><div class="dialog-inner"><button class="dialog-close" id="dialog-close" aria-label="Close image">×</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></div></dialog>
-  <script src="ml-case-study.js" defer></script>
+<footer class="footer">
+  <div class="container footer-grid">
+    <div><h2>Elie Abi Raad, Dr.-Ing.</h2><p>Technical programs · Product development · Data &amp; modeling · Engineering &amp; research</p></div>
+    <div class="footer-links"><a href="../work.html">Selected work</a><a href="mailto:elie.abiraad.pm@gmail.com">Email</a><a href="https://www.linkedin.com/in/elie-abi-raad" target="_blank" rel="noopener">LinkedIn ↗</a><a href="../Elie_Abi_Raad_CV.pdf" target="_blank" rel="noopener">CV ↗</a></div>
+  </div>
+  <div class="container small" style="margin-top:28px">© <span data-year></span> Elie Abi Raad</div>
+</footer>
+<dialog class="ml-lightbox" id="ml-lightbox" aria-label="Expanded research figure">
+  <div class="ml-lightbox-toolbar"><span id="ml-lightbox-caption">Original research figure</span><button type="button" id="ml-lightbox-close" aria-label="Close expanded figure">Close ×</button></div>
+  <img id="ml-lightbox-image" src="" alt="">
+</dialog>
+<script src="../assets/script.js"></script>
+<script src="ml-case-study.js" defer></script>
 </body>
 </html>

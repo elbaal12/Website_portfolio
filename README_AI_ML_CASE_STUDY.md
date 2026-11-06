@@ -1,4 +1,4 @@
-# Applied AI/ML & statistics — portfolio integration
+# Responsive portfolio website — AI/ML & statistics
 
 This package is the updated **complete portfolio website**, ready to commit to the GitHub repository used for the site. It extends the supplied `Website_portfolio_acoustic_monitoring_updated.zip`; all existing pages and images have been retained.
 
@@ -10,6 +10,9 @@ This package is the updated **complete portfolio website**, ready to commit to t
 - A direct **AI & ML** navigation link throughout the existing portfolio, plus featured cards and contextual links from the relevant PhD, acoustic-monitoring, research-program, capability and technical-depth pages.
 - Clarified dataset provenance: the classification paper analyzed the **same 120 original welds plus three additional measurements** (123 total). The two studies used different preprocessing approaches and modeling targets.
 - Corrected the strength-regression terminology on `work/usmw.html`: raw R² = 0.44, adjusted R² = 0.36, compared with R² = 0.13 for the time-only baseline. These are in-sample fit metrics.
+- Unified the AI/ML page with the portfolio's existing light, editorial visual theme, including the same navigation and footer.
+- Rebalanced oversized headings, long text lines, section spacing and cards for desktop/laptop screens, with single-column layouts where appropriate for phones.
+- Corrected research-figure sizing across the site: images preserve their original aspect ratios instead of being stretched or cropped. Acoustic-monitoring figures appear at consistent, readable widths with captions and full-resolution links.
 
 ## Commit to GitHub
 
@@ -19,8 +22,8 @@ This package is the updated **complete portfolio website**, ready to commit to t
 
    ```bash
    git status
-   git add index.html work.html capabilities.html expertise.html about.html assets/styles.css work/
-   git commit -m "Add AI and statistics research case study"
+   git add index.html work.html capabilities.html expertise.html about.html assets/ work/ README_AI_ML_CASE_STUDY.md
+   git commit -m "Refine responsive portfolio and integrate AI/ML study"
    git push
    ```
 
@@ -37,4 +40,4 @@ No JavaScript build system or extra dependencies are required; the site is stati
 - `work/machine-learning.html` — primary case study with research figures, expandable charts and paper downloads.
 - `work/acoustic-monitoring.html` — companion journal study linking back to the AI/ML methods.
 
-The new AI/ML page uses its own dark research-case-study visual treatment while retaining full navigation back to the rest of your portfolio.
+The AI/ML study now shares the portfolio's light theme. For the best experience, view the full-size research graphs by clicking the figure links; the inline copies are intentionally constrained to keep the page visually balanced on smaller screens.
