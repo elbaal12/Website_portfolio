@@ -4,6 +4,7 @@ This package is the updated **complete portfolio website**, ready to commit to t
 
 ## What's new
 
+- **Latest theme correction:** AI & ML is now styled exactly like the other navigation items. Only the current page receives the active underline. The AI/ML deep-dive page shares the same light page theme as the rest of the portfolio. CSS URLs include a version marker so browsers fetch the revised styles after deployment.
 - `work/machine-learning.html` — the AI/ML and statistics research case study.
 - `work/ml-case-study.css` and `work/ml-case-study.js` — dedicated case-study styles and figure-viewer interactions.
 - `work/ml-assets/` — source-paper figures and the two PDF research references used on the page.
@@ -30,6 +31,8 @@ This package is the updated **complete portfolio website**, ready to commit to t
    If your repository also tracks updated files not included in the explicit `git add` list, inspect them with `git status` and stage them separately as appropriate.
 
 4. If your portfolio is deployed through GitHub Pages, check that the live navigation and figure assets load after the GitHub Pages build/deploy finishes.
+
+**Important:** Replace the full `work/` and `assets/` folders, not only `work/machine-learning.html`. The AI/ML page depends on both `work/ml-case-study.css` and `assets/styles.css`; using an older stylesheet is what causes its earlier dark appearance to remain. If the old styling persists after deployment, reload without the browser cache (Ctrl+Shift+R in Firefox on Windows).
 
 No JavaScript build system or extra dependencies are required; the site is static HTML, CSS and JavaScript. Asset links are relative, so the file structure must be preserved.
 
