@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <meta name="description" content="How Elie Abi Raad used non-contact vibration measurements, signal processing and mechanical tests to identify the maximum-strength stage in ultrasonic metal welding. A 2023 peer-reviewed research case study.">
+  <title>Acoustic monitoring of ultrasonic metal welding — Elie Abi Raad</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html">Elie Abi Raad <span>· Dr.-Ing.</span></a>
+    <button class="menu-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">☰</button>
+    <div class="nav-links" id="site-navigation">
+      <a href="../index.html">Home</a><a href="../capabilities.html">Capabilities</a>
+      <a class="active" aria-current="page" href="../work.html">Selected work</a>
+      <a href="../expertise.html">Technical depth</a><a href="../about.html">About</a>
+      <a class="cv-link" href="../Elie_Abi_Raad_CV.pdf" target="_blank" rel="noopener">CV ↗</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <header class="case-hero paper-hero">
+    <div class="container">
+      <p class="paper-breadcrumb"><a href="../work.html">Selected work</a><span aria-hidden="true"> / </span><a href="usmw.html">Doctoral research</a><span aria-hidden="true"> / </span>Journal paper</p>
+      <div class="kicker">Research case study · RWTH Aachen University · 2023</div>
+      <h1>Knowing when a weld is strong enough—without breaking it.</h1>
+      <div class="paper-hero-bottom">
+        <p class="paper-lede">I investigated how the vibrations of a welding machine could reveal the physical stages of ultrasonic metal welding—and identify when a weld reaches its maximum-strength stage.</p>
+        <div class="paper-hero-actions">
+          <a class="btn primary" href="#approach">Explore the method ↓</a>
+          <a class="btn ghost" href="https://doi.org/10.1016/j.jmapro.2023.06.052" target="_blank" rel="noopener noreferrer">Read the journal paper ↗</a>
+        </div>
+      </div>
+      <div class="paper-label-row" aria-label="Project details"><span>First-author research</span><span>Non-contact sensing</span><span>Physics-informed signal processing</span><span>Quality monitoring</span></div>
+    </div>
+  </header>
+  <div class="container paper-photo-wrap">
+    <figure class="paper-photo">
+      <a href="../assets/images/acoustic-monitoring/experimental-setup.jpg" target="_blank" rel="noopener" aria-label="Open full-size photo of ultrasonic welding setup">
+        <img src="../assets/images/acoustic-monitoring/experimental-setup.jpg" alt="Close-up of welding horn pressing copper sheets onto an anvil, with a red laser measurement point and custom white suction adapter" fetchpriority="high" width="1072" height="654">
+      </a>
+      <figcaption><strong>The experiment.</strong> A welding horn, copper workpieces and anvil. Laser Doppler vibrometers measured their vibrations; a 3D-printed suction adapter kept expelled particles out of the laser path. <span>Figure 1 from the paper.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="container">
+    <div class="paper-proof" aria-label="Research at a glance">
+      <div><strong>120</strong><span>welds investigated</span></div>
+      <div><strong>3 × 40</strong><span>experimental groups</span></div>
+      <div><strong>40 / 40</strong><span>stage-5 welds detected via the anvil criterion in the final group</span></div>
+      <div><strong>20.28 kHz</strong><span>measured welding frequency</span></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="case-body paper-case-body">
+      <aside class="case-toc" aria-label="On this page">
+        <div class="kicker" style="margin-bottom:10px">On this page</div>
+        <a href="#challenge">The challenge</a>
+        <a href="#approach">Experimental approach</a>
+        <a href="#signals">From signal to insight</a>
+        <a href="#stages">Understanding the stages</a>
+        <a href="#detection">Detection criterion</a>
+        <a href="#evidence">Experimental evidence</a>
+        <a href="#contribution">My contributions</a>
+        <a href="#implications">What this enables</a>
+        <a href="#publication">Publication</a>
+      </aside>
+      <article class="case-content paper-content">
+        <section id="challenge">
+          <div class="kicker">01 / The challenge</div>
+          <h2>Strength testing destroys the weld. Monitoring should not.</h2>
+          <p>Ultrasonic metal welding joins metal components through pressure and high-frequency mechanical vibration. It is used in industries such as automotive manufacturing, electronics and battery production. But weld strength depends on many interacting factors—from surface conditions to welding parameters and material properties.</p>
+          <p>One route to quality control is to predict final strength from sensor data. The difficulty is that a statistical relationship developed under one set of conditions may not remain reliable under another. I explored a different question:</p>
+          <blockquote class="paper-pullquote">Can we recognize the physical state of the welding process itself, and detect when the joint has reached its strongest stage?</blockquote>
+          <p>The hypothesis was that the horn and anvil vibrations contain signatures of the evolving mechanical contact between the joined sheets. Such signatures could become interpretable monitoring criteria rather than only inputs to a predictive model.</p>
+        </section>
+
+        <section id="approach">
+          <div class="kicker">02 / Experimental engineering</div>
+          <h2>Design an experiment around the reality of the machine.</h2>
+          <p>I investigated 120 copper-sheet welds, divided into three groups of 40 using different welding energies (1,000, 1,400 and 1,800 Ws). Two synchronized laser Doppler vibrometers measured horn and anvil vibrations without touching the process. Every weld was then tested for mechanical strength and failure mode.</p>
+          <p>There was a practical constraint: flying particles disrupted laser measurements near the welding interface. A custom 3D-printed suction adapter cleared the optical path, enabling measurements close to the horn tip. The anvil measurement was taken at a more accessible point on its side—an important step toward a practical monitoring setup.</p>
+          <div class="paper-detail-grid">
+            <div><span class="paper-mini-kicker">Input</span><strong>Process vibrations</strong><p>Horn and anvil velocity measured during the weld.</p></div>
+            <div><span class="paper-mini-kicker">Ground truth</span><strong>Mechanical tests</strong><p>Tensile-shear strength and observed fracture behavior.</p></div>
+          </div>
+        </section>
+
+        <section id="signals">
+          <div class="kicker">03 / Signal processing</div>
+          <h2>Translate a 20 kHz waveform into information about the weld.</h2>
+          <p>Raw laser measurements are high-frequency velocity signals, not direct indications of welding quality. I developed the processing workflow in MATLAB to isolate the vibration at the welding frequency, recover displacement amplitude and make small changes over time interpretable.</p>
+          <div class="paper-steps" aria-label="Signal processing pipeline">
+            <div><span>01</span><strong>Trim</strong><small>Isolate welding</small></div>
+            <div><span>02</span><strong>Filter</strong><small>20.28 kHz band</small></div>
+            <div><span>03</span><strong>Integrate</strong><small>Velocity → displacement</small></div>
+            <div><span>04</span><strong>Envelope</strong><small>Hilbert transform</small></div>
+            <div><span>05</span><strong>Smooth</strong><small>Preserve trends</small></div>
+            <div><span>06</span><strong>Rate of change</strong><small>Reveal transitions</small></div>
+          </div>
+          <div class="paper-figure-pair">
+            <figure class="paper-figure">
+              <a href="../assets/images/acoustic-monitoring/raw-vs-filtered.jpeg" target="_blank" rel="noopener" aria-label="Open raw and filtered vibration graph full size"><img src="../assets/images/acoustic-monitoring/raw-vs-filtered.jpeg" loading="lazy" width="2048" height="1191" alt="Measured velocity waveforms: blue raw signal and orange bandpass-filtered signal near 20.28 kHz"></a>
+              <figcaption><strong>Isolate the process signal.</strong> Filtering removes components away from the welding frequency. <span>Figure 3a.</span></figcaption>
+            </figure>
+            <figure class="paper-figure">
+              <a href="../assets/images/acoustic-monitoring/envelope-smoothing.jpeg" target="_blank" rel="noopener" aria-label="Open smoothed envelope graph full size"><img src="../assets/images/acoustic-monitoring/envelope-smoothing.jpeg" loading="lazy" width="2047" height="1109" alt="Amplitude envelope plot with noisy original envelope in blue and smoothed envelope in orange"></a>
+              <figcaption><strong>Expose the evolution.</strong> Envelope extraction and smoothing reveal the underlying amplitude trend. <span>Figure 3b.</span></figcaption>
+            </figure>
+          </div>
+          <p>From the smoothed envelope, I calculated its rate of change. This derivative-like feature made the boundaries between process stages easier to identify than the raw waveform alone.</p>
+        </section>
+
+        <section id="stages">
+          <div class="kicker">04 / Physical interpretation</div>
+          <h2>Don't just classify the signal. Explain what it means.</h2>
+          <p>The joint evolves through identifiable welding stages: initial motion, surface cleaning, thermal softening and weld formation, dynamic recrystallization, and finally a maximum-strength stage. As the interfaces change, the horn and anvil respond differently.</p>
+          <figure class="paper-figure paper-figure-wide">
+            <a href="../assets/images/acoustic-monitoring/welding-stage-model.jpg" target="_blank" rel="noopener" aria-label="Open five-stage process diagram full size"><img src="../assets/images/acoustic-monitoring/welding-stage-model.jpg" loading="lazy" width="928" height="443" alt="Five-stage ultrasonic metal welding diagram showing the horn, upper and lower copper sheets, and anvil, with interface movement and amplitude trends"></a>
+            <figcaption><strong>The physical model.</strong> Vibrations change as interfaces move and the weld develops. Stage 5 is the maximum-strength stage. The paper also discusses a possible later overwelding stage, which was not observed in these tests. <span>Figure 8.</span></figcaption>
+          </figure>
+          <p>This connection to the physics matters. It turns a pattern in a time series into a monitoring signal with a plausible mechanical explanation and helps guide what should be tested under different welding conditions.</p>
+        </section>
+
+        <section id="detection">
+          <div class="kicker">05 / Monitoring criterion</div>
+          <h2>Two identifiable signal events. One useful decision.</h2>
+          <p>The most promising indicator was the <strong>rate of change of the anvil's vibration amplitude</strong>. Instead of checking whether a signal had crossed zero at any time, the detection logic uses the sequence of physical stages:</p>
+          <ol class="paper-detection-steps">
+            <li><strong>Find the stage-4 peak.</strong><span>A local maximum in the envelope's rate of change marks a transition associated with dynamic recrystallization.</span></li>
+            <li><strong>Watch for the subsequent zero crossing.</strong><span>When the rate of change becomes negative after that peak, the anvil amplitude begins decreasing.</span></li>
+            <li><strong>Identify entry into stage 5.</strong><span>The decrease indicates the maximum-strength stage, providing a candidate condition for stopping the process.</span></li>
+          </ol>
+          <figure class="paper-figure paper-figure-wide">
+            <a href="../assets/images/acoustic-monitoring/stage-four-peaks.jpeg" target="_blank" rel="noopener" aria-label="Open graph of peaks indicating stage four"><img src="../assets/images/acoustic-monitoring/stage-four-peaks.jpeg" loading="lazy" width="2048" height="1124" alt="Forty blue anvil envelope rate-of-change trajectories with red circles marking peaks around 0.5 to 0.7 seconds"></a>
+            <figcaption><strong>First, recognize the stage-4 peak.</strong> The red markers show the detected peaks in the 40 welds of group 3. <span>Figure 10b.</span></figcaption>
+          </figure>
+          <figure class="paper-figure paper-figure-wide">
+            <a href="../assets/images/acoustic-monitoring/stage-five-zero-crossing.jpeg" target="_blank" rel="noopener" aria-label="Open graph of stage-five zero crossings"><img src="../assets/images/acoustic-monitoring/stage-five-zero-crossing.jpeg" loading="lazy" width="2048" height="1063" alt="Forty blue anvil envelope rate-of-change curves, with red zero-line markers where the signal changes from positive to negative following the peak"></a>
+            <figcaption><strong>Then, detect the change of sign.</strong> Markers show where each group-3 weld entered the maximum-strength stage according to the anvil criterion. Not every weld reaches that point at exactly the same time. <span>Figure 10a.</span></figcaption>
+          </figure>
+          <div class="callout"><strong>Why order matters</strong><p>Some signals crossed zero earlier in the process. Requiring the characteristic stage-4 peak before the later sign change makes the criterion process-aware rather than an arbitrary threshold.</p></div>
+          <figure class="paper-figure paper-figure-wide">
+            <a href="../assets/images/acoustic-monitoring/anvil-rate-detail.jpeg" target="_blank" rel="noopener" aria-label="Open representative anvil rate curves"><img src="../assets/images/acoustic-monitoring/anvil-rate-detail.jpeg" loading="lazy" width="2048" height="1099" alt="Zoomed rate-of-change curves for three welding groups, showing a hump around 0.6 seconds and a later negative transition in the longest weld"></a>
+            <figcaption><strong>How the groups differ.</strong> Representative measurements show the stage-related progression, including a negative rate of change for the longest weld group. <span>Figure 9b.</span></figcaption>
+          </figure>
+          <details class="paper-more-figure"><summary>View the same signal over its full amplitude range</summary>
+            <figure class="paper-figure paper-figure-wide"><a href="../assets/images/acoustic-monitoring/anvil-rate-full.jpeg" target="_blank" rel="noopener" aria-label="Open full-scale anvil rate graph"><img src="../assets/images/acoustic-monitoring/anvil-rate-full.jpeg" loading="lazy" width="2048" height="1108" alt="Full-scale rate-of-change curves for representative welds in three experimental groups"></a><figcaption>The full-range plot makes the strong initial transient visible. <span>Figure 9a.</span></figcaption></figure>
+          </details>
+        </section>
+
+        <section id="evidence">
+          <div class="kicker">06 / Validation</div>
+          <h2>Compare the monitoring signal with measured weld strength.</h2>
+          <p>Signal patterns alone would not establish whether the identified stage mattered. I compared them with destructive mechanical tests and fracture modes from all three groups.</p>
+          <figure class="paper-figure paper-figure-wide">
+            <a href="../assets/images/acoustic-monitoring/weld-strength-groups.jpg" target="_blank" rel="noopener" aria-label="Open weld strength box plot"><img src="../assets/images/acoustic-monitoring/weld-strength-groups.jpg" loading="lazy" width="2048" height="1133" alt="Box plots of measured strength in newtons for welding groups 1, 2 and 3, showing lower strength in group 1 and similar strengths in groups 2 and 3"></a>
+            <figcaption><strong>Strength rises, then plateaus.</strong> Group 1 was weaker. Groups 2 and 3 had similar mean tensile-shear strengths, despite the greater welding energy in group 3. <span>Figure 5.</span></figcaption>
+          </figure>
+          <div class="paper-results-grid">
+            <div><strong>1,733 N</strong><span>mean strength, group 2</span></div>
+            <div><strong>1,741 N</strong><span>mean strength, group 3</span></div>
+            <div><strong>40 / 40</strong><span>group-3 welds showed the post-peak sign change</span></div>
+            <div><strong>0 / 40</strong><span>group-1 welds showed that change</span></div>
+          </div>
+          <p>The strength difference between groups 2 and 3 was not statistically significant in this study, consistent with a strength plateau under the tested conditions. Three group-2 welds also exhibited the later sign change, consistent with their proximity to the maximum-strength stage.</p>
+          <p>The alternative horn-based criterion also showed potential but required selecting an amplitude threshold; it was less reliable than the anvil criterion. This reinforced the case for using the anvil as the primary sensor location.</p>
+        </section>
+
+        <section id="contribution">
+          <div class="kicker">07 / My work</div>
+          <h2>My contribution, from experiment to publication.</h2>
+          <p>As first author and researcher, I worked across the measurement, analytical and interpretive sides of the investigation. My formal credited contributions included conceptualization, methodology, investigation, software, formal analysis and drafting and revising the publication.</p>
+          <div class="paper-skill-grid">
+            <div><span class="paper-mini-kicker">Experimental design</span><strong>Make difficult measurements possible</strong><p>Plan the measurement configuration, synchronize non-contact sensing and address optical interference.</p></div>
+            <div><span class="paper-mini-kicker">Scientific software</span><strong>Extract useful features</strong><p>Build a MATLAB processing chain for filtering, envelope analysis, rate-of-change detection and comparisons.</p></div>
+            <div><span class="paper-mini-kicker">Statistical reasoning</span><strong>Test against physical outcomes</strong><p>Relate time-series behavior to distributions of measured strength and fracture modes.</p></div>
+            <div><span class="paper-mini-kicker">Applied research</span><strong>Turn understanding into a decision rule</strong><p>Connect welding-stage physics to an interpretable criterion for recognizing maximum weld strength.</p></div>
+          </div>
+        </section>
+
+        <section id="implications">
+          <div class="kicker">08 / Implications &amp; limitations</div>
+          <h2>A foundation for smarter process control—not a deployed controller.</h2>
+          <p>The results demonstrate that accessible vibration measurements can provide meaningful, physically interpretable information about ultrasonic welding progress. The anvil-based criterion is especially promising for future real-time, non-destructive monitoring because it does not depend on measuring directly at the weld interface.</p>
+          <p>This was an experimental investigation on copper sheets under selected welding conditions. It did <strong>not</strong> establish a production-ready closed-loop system, and transferability to other materials, machines and welding conditions remains to be tested. An important next step is evaluating this approach alongside data-driven monitoring techniques.</p>
+          <div class="paper-related"><div><div class="kicker">Wider research context</div><h3>Part of a broader doctoral research effort</h3><p>This publication focuses on the stage-detection method. My doctoral work also explored weld-strength prediction, statistical modeling and equivalent mechanical models of the welding process.</p></div><a class="btn ghost" href="usmw.html">Explore the broader project →</a></div>
+        </section>
+
+        <section id="publication">
+          <div class="kicker">09 / Publication</div>
+          <h2>Published in the Journal of Manufacturing Processes.</h2>
+          <p><strong>Acoustic monitoring of weld strength in ultrasonic metal welding by tracking welding stages</strong><br>Elie Abi Raad and Michael Vorländer · <em>Journal of Manufacturing Processes</em>, 101 (2023), 1055–1064.</p>
+          <a class="btn primary" href="https://doi.org/10.1016/j.jmapro.2023.06.052" target="_blank" rel="noopener noreferrer">View the peer-reviewed paper ↗</a>
+          <p class="paper-smallnote">Figures reproduced from the authors’ original research materials. Journal: <em>Journal of Manufacturing Processes</em> (2023).</p>
+        </section>
+      </article>
+    </div>
+  </div>
+</main>
+<footer class="footer"><div class="container footer-grid"><div><h2>Elie Abi Raad, Dr.-Ing.</h2><p>Technical programs · Product development · Data &amp; modeling · Engineering &amp; research</p></div><div class="footer-links"><a href="mailto:elie.abiraad.pm@gmail.com">Email</a><a href="https://www.linkedin.com/in/elie-abi-raad" target="_blank" rel="noopener">LinkedIn ↗</a><a href="../Elie_Abi_Raad_CV.pdf" target="_blank" rel="noopener">CV ↗</a></div></div><div class="container small" style="margin-top:28px">© <span data-year></span> Elie Abi Raad</div></footer>
+<script src="../assets/script.js"></script>
+</body></html>
